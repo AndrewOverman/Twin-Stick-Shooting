@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://dowb33h7ay00u"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_diloh"]
+[ext_resource type="Texture2D" uid="uid://8eisp2x1l21l" path="res://SpaceShooterAssets/SpaceShooterAssetPack_Ships.png" id="1_txxyj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08dc0"]
+atlas = ExtResource("1_txxyj")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_374y8"]
+atlas = ExtResource("1_txxyj")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvg5p"]
+atlas = ExtResource("1_txxyj")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5irj8"]
+atlas = ExtResource("1_txxyj")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jokmh"]
+atlas = ExtResource("1_txxyj")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w272"]
+atlas = ExtResource("1_txxyj")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8x7s3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08dc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_374y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvg5p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5irj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jokmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w272")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tol2l"]
+radius = 41.0122
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_diloh")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_8x7s3")
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tol2l")
